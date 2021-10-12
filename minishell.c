@@ -6,7 +6,7 @@
 /*   By: oidrissi <oidrissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/08 15:13:15 by oidrissi          #+#    #+#             */
-/*   Updated: 2021/10/08 16:46:38 by oidrissi         ###   ########.fr       */
+/*   Updated: 2021/10/12 16:44:59 by oidrissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,14 +46,17 @@
 // 	}
 // }
 
-char	*rd_input(void)
-{
-	char  *ret;
+// char	*rd_input(void)
+// {
+// 	char  *ret;
 	
 	
-	ret = readline();
-}
+// 	ret = readline();
+// }
 
+
+#include <readline/readline.h>
+#include <string.h>
 
 int main(int argc, char **argv, char **envp)
 {
@@ -61,13 +64,17 @@ int main(int argc, char **argv, char **envp)
     char *read;
     // char *args;
     int to_ex;
-    
+
+    char *prompt = "";
+    char *ret;
     // msh = (t_sh *)malloc(sizeof(t_sh));
     to_ex = 1;
     while (to_ex != 0)
     {
         printf("> ");
-        read = rd_input();
+        ret = readline(prompt);
+        if (!strcmp("echo", ret))
+            printf("Perfect");
         // args = parse_input(read);
         // to_ex = msh_exec(args);
 

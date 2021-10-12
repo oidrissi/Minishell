@@ -6,7 +6,7 @@
 /*   By: oidrissi <oidrissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/08 15:13:12 by oidrissi          #+#    #+#             */
-/*   Updated: 2021/10/11 17:00:10 by oidrissi         ###   ########.fr       */
+/*   Updated: 2021/10/12 16:55:06 by oidrissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,10 @@
 #include <readline/history.h>
 
 #define BUFFER_SIZE 1024
+#define RIGHT 10
+#define LEFT 11
+#define DOUBLE_RIGHT 12
+#define DOUBLE_LEFT 13
 
 typedef struct s_redir
 {
@@ -30,12 +34,12 @@ typedef struct s_redir
 	struct s_redir *next;
 }	t_redir;
 
-typedef struct s_sh
+typedef struct s_cmd
 {
     char **args;
     t_redir red;
-    struct s_sh *next;
-	struct s_sh *prev;
+    struct s_cmd *next;
+	struct s_cmd *prev;
 }   t_sh;
 
 #endif
